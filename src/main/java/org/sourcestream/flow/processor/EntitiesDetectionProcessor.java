@@ -45,7 +45,7 @@ public class EntitiesDetectionProcessor implements Processor<String,EntityReport
     		detectionEvent event = new detectionEvent();
     		event.setSourceName(sourceName);
     		event.setExternalSystemID(value.id);
-	        event.setDataOffset(lastOffsetData.getAndIncrement());
+	        event.setDataOffset(lastOffsetData.get());
     		
     		context.forward(key, event);
 	        context.commit();
@@ -55,7 +55,8 @@ public class EntitiesDetectionProcessor implements Processor<String,EntityReport
     	else {
     		valueState = "Updated";
     	}
-    	
+	    
+	lastOffsetData.getAndIncrement();    	
     	System.out.println("Creation:" + valueState + " target external ID:" + value.id + " " + monitor.getProcessorPerformanceStatus(context.timestamp()));
     }
     
