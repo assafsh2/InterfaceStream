@@ -91,7 +91,8 @@ public class EntitiesDetectionProcessor implements Processor<String,EntityReport
 			consumer.seekToEnd(Arrays.asList(partition));
 			lastOffset  = consumer.position(partition); 
 		}
-
+		System.out.println(props);
+		System.out.println("The latest offset is "+lastOffset+ " for "+partition.toString());
 		return new AtomicLong(lastOffset);
 	}
 
