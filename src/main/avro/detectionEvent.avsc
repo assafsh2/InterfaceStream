@@ -18,6 +18,12 @@
   	"name": "dataOffset",
   	"type": "long",
   	"doc" : "Data Offset"
+	},
+	{
+  	"name": "newFieldWithDefault",
+  	"type": "long",
+	"default":-1,
+  	"doc" : "Data Offset"
 	}
   ]
 }
