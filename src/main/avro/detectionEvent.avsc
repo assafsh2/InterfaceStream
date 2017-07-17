@@ -28,8 +28,7 @@
 	{
   	"name": "newStringFieldWithNoDefault",
   	"type": "string",
-	"default":"ASSAF",
-  	"doc" : "newStringFieldWithNoDefault"
+	"default":"ASSAF"
 	}
   ]
 }
