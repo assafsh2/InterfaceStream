@@ -132,6 +132,7 @@ public class EntityReportKafkaStream {
         props.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, kafkaIP);
         props.put(StreamsConfig.REPLICATION_FACTOR_CONFIG, 1);
         props.put(StreamsConfig.TIMESTAMP_EXTRACTOR_CLASS_CONFIG, WallclockTimestampExtractor.class);
+	props.put(StreamsConfig.NUM_STREAM_THREADS_CONFIG,"100");
         return props;
     }
 }
