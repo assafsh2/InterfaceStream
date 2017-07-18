@@ -51,6 +51,9 @@ public class EntitiesDetectionProcessor implements Processor<String,EntityReport
 	        context.commit();
 	        state.put(value.id, value);
 	        valueState = "New";
+		if(value.id.startsWith("performanceProcess")) {
+	    		System.out.println("Got request from performanceProcess "+event);
+	    	}
     	}
     	else {
     		valueState = "Updated";
