@@ -93,18 +93,18 @@ public class EntityReportKafkaStream {
                 Serdes.String().deserializer(),
                 entityReportJsonDeserializer,
                 sourceName + "-raw-data")
-	     .addProcessor("detection-processor",
-	                   () -> new EntitiesDetectionProcessor(sourceName),
-	                   "messages-source")
+	   //  .addProcessor("detection-processor",
+	   //               () -> new EntitiesDetectionProcessor(sourceName),
+	   //               "messages-source")
 	     .addProcessor("data-processor",
 				       () -> new JsonDetectionReportToSystemRport(),
 				       "messages-source")
 	     .addStateStore(sourceEntitiesStore, "detection-processor")
-	     .addSink("creation-sink", 
-	              "creation", 
-	              Serdes.String().serializer(),
-	              kafkaAvroSerializer,
-	              "detection-processor")
+	  //   .addSink("creation-sink", 
+	   //           "creation", 
+	    //          Serdes.String().serializer(),
+	    //          kafkaAvroSerializer,
+	    //          "detection-processor")
 	     .addSink("data-sink", 
 	              sourceName, 
 	              Serdes.String().serializer(),
