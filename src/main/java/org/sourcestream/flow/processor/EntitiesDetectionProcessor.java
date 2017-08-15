@@ -47,8 +47,8 @@ public class EntitiesDetectionProcessor implements Processor<String,EntityReport
     		event.setExternalSystemID(value.id);
 	        event.setDataOffset(lastOffsetData.get());
 
-    		context.forward(key, event);
-	        context.commit();
+    		//context.forward(key, event);
+	        //context.commit();
 	        state.put(value.id, value);
 	        valueState = "New";
 		if(value.id.startsWith("performanceProcess")) {
